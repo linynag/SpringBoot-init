@@ -1,13 +1,14 @@
-package com.yupi.springbootinit.controller;
+package com.linynag.springbootinit.controller;
 
-import com.yupi.springbootinit.common.BaseResponse;
-import com.yupi.springbootinit.common.ErrorCode;
-import com.yupi.springbootinit.common.ResultUtils;
-import com.yupi.springbootinit.exception.BusinessException;
-import com.yupi.springbootinit.model.dto.postthumb.PostThumbAddRequest;
-import com.yupi.springbootinit.model.entity.User;
-import com.yupi.springbootinit.service.PostThumbService;
-import com.yupi.springbootinit.service.UserService;
+import com.linynag.springbootinit.common.BaseResponse;
+import com.linynag.springbootinit.common.ErrorCode;
+import com.linynag.springbootinit.common.ResultUtils;
+import com.linynag.springbootinit.exception.BusinessException;
+import com.linynag.springbootinit.model.dto.postthumb.PostThumbAddRequest;
+import com.linynag.springbootinit.model.entity.User;
+import com.linynag.springbootinit.service.PostThumbService;
+import com.linynag.springbootinit.service.UserService;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 帖子点赞接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/post_thumb")
@@ -42,7 +41,7 @@ public class PostThumbController {
      */
     @PostMapping("/")
     public BaseResponse<Integer> doThumb(@RequestBody PostThumbAddRequest postThumbAddRequest,
-            HttpServletRequest request) {
+                                         HttpServletRequest request) {
         if (postThumbAddRequest == null || postThumbAddRequest.getPostId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

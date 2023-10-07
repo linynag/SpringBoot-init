@@ -1,27 +1,27 @@
-package com.yupi.springbootinit.service.impl;
+package com.linynag.springbootinit.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.gson.Gson;
-import com.yupi.springbootinit.common.ErrorCode;
-import com.yupi.springbootinit.constant.CommonConstant;
-import com.yupi.springbootinit.exception.BusinessException;
-import com.yupi.springbootinit.exception.ThrowUtils;
-import com.yupi.springbootinit.mapper.PostFavourMapper;
-import com.yupi.springbootinit.mapper.PostMapper;
-import com.yupi.springbootinit.mapper.PostThumbMapper;
-import com.yupi.springbootinit.model.dto.post.PostEsDTO;
-import com.yupi.springbootinit.model.dto.post.PostQueryRequest;
-import com.yupi.springbootinit.model.entity.Post;
-import com.yupi.springbootinit.model.entity.PostFavour;
-import com.yupi.springbootinit.model.entity.PostThumb;
-import com.yupi.springbootinit.model.entity.User;
-import com.yupi.springbootinit.model.vo.PostVO;
-import com.yupi.springbootinit.model.vo.UserVO;
-import com.yupi.springbootinit.service.PostService;
-import com.yupi.springbootinit.service.UserService;
-import com.yupi.springbootinit.utils.SqlUtils;
+import com.linynag.springbootinit.constant.CommonConstant;
+import com.linynag.springbootinit.common.ErrorCode;
+import com.linynag.springbootinit.exception.BusinessException;
+import com.linynag.springbootinit.exception.ThrowUtils;
+import com.linynag.springbootinit.mapper.PostFavourMapper;
+import com.linynag.springbootinit.mapper.PostMapper;
+import com.linynag.springbootinit.mapper.PostThumbMapper;
+import com.linynag.springbootinit.model.dto.post.PostEsDTO;
+import com.linynag.springbootinit.model.dto.post.PostQueryRequest;
+import com.linynag.springbootinit.model.entity.Post;
+import com.linynag.springbootinit.model.entity.PostFavour;
+import com.linynag.springbootinit.model.entity.PostThumb;
+import com.linynag.springbootinit.model.entity.User;
+import com.linynag.springbootinit.model.vo.PostVO;
+import com.linynag.springbootinit.model.vo.UserVO;
+import com.linynag.springbootinit.service.PostService;
+import com.linynag.springbootinit.service.UserService;
+import com.linynag.springbootinit.utils.SqlUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,8 +50,6 @@ import org.springframework.stereotype.Service;
 /**
  * 帖子服务实现
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Service
 @Slf4j

@@ -1,8 +1,9 @@
-package com.yupi.springbootinit.model.dto.post;
+package com.linynag.springbootinit.model.dto.post;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.yupi.springbootinit.model.entity.Post;
+import com.linynag.springbootinit.model.entity.Post;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +18,6 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 /**
  * 帖子 ES 包装类
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  **/
 // todo 取消注释开启 ES（须先配置 ES）
 //@Document(indexName = "post")

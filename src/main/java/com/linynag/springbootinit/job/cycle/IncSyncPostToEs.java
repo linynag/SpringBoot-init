@@ -1,9 +1,10 @@
-package com.yupi.springbootinit.job.cycle;
+package com.linynag.springbootinit.job.cycle;
 
-import com.yupi.springbootinit.esdao.PostEsDao;
-import com.yupi.springbootinit.mapper.PostMapper;
-import com.yupi.springbootinit.model.dto.post.PostEsDTO;
-import com.yupi.springbootinit.model.entity.Post;
+import com.linynag.springbootinit.mapper.PostMapper;
+import com.linynag.springbootinit.model.dto.post.PostEsDTO;
+import com.linynag.springbootinit.model.entity.Post;
+import com.linynag.springbootinit.esdao.PostEsDao;
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +16,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 /**
  * 增量同步帖子到 es
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 // todo 取消注释开启任务
 //@Component

@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.model.dto.postthumb;
+package com.linynag.springbootinit.model.dto.postthumb;
 
 import java.io.Serializable;
 import lombok.Data;
@@ -6,8 +6,6 @@ import lombok.Data;
 /**
  * 帖子点赞请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Data
 public class PostThumbAddRequest implements Serializable {

@@ -1,16 +1,17 @@
-package com.yupi.springbootinit.controller;
+package com.linynag.springbootinit.controller;
 
 import cn.hutool.core.io.FileUtil;
-import com.yupi.springbootinit.common.BaseResponse;
-import com.yupi.springbootinit.common.ErrorCode;
-import com.yupi.springbootinit.common.ResultUtils;
-import com.yupi.springbootinit.constant.FileConstant;
-import com.yupi.springbootinit.exception.BusinessException;
-import com.yupi.springbootinit.manager.CosManager;
-import com.yupi.springbootinit.model.dto.file.UploadFileRequest;
-import com.yupi.springbootinit.model.entity.User;
-import com.yupi.springbootinit.model.enums.FileUploadBizEnum;
-import com.yupi.springbootinit.service.UserService;
+import com.linynag.springbootinit.common.BaseResponse;
+import com.linynag.springbootinit.common.ErrorCode;
+import com.linynag.springbootinit.common.ResultUtils;
+import com.linynag.springbootinit.constant.FileConstant;
+import com.linynag.springbootinit.exception.BusinessException;
+import com.linynag.springbootinit.manager.CosManager;
+import com.linynag.springbootinit.model.dto.file.UploadFileRequest;
+import com.linynag.springbootinit.model.entity.User;
+import com.linynag.springbootinit.model.enums.FileUploadBizEnum;
+import com.linynag.springbootinit.service.UserService;
+
 import java.io.File;
 import java.util.Arrays;
 import javax.annotation.Resource;
@@ -26,8 +27,6 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 文件接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/file")
@@ -50,7 +49,7 @@ public class FileController {
      */
     @PostMapping("/upload")
     public BaseResponse<String> uploadFile(@RequestPart("file") MultipartFile multipartFile,
-            UploadFileRequest uploadFileRequest, HttpServletRequest request) {
+                                           UploadFileRequest uploadFileRequest, HttpServletRequest request) {
         String biz = uploadFileRequest.getBiz();
         FileUploadBizEnum fileUploadBizEnum = FileUploadBizEnum.getEnumByValue(biz);
         if (fileUploadBizEnum == null) {

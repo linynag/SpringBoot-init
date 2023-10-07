@@ -1,11 +1,12 @@
-package com.yupi.springbootinit.aop;
+package com.linynag.springbootinit.aop;
 
-import com.yupi.springbootinit.annotation.AuthCheck;
-import com.yupi.springbootinit.common.ErrorCode;
-import com.yupi.springbootinit.exception.BusinessException;
-import com.yupi.springbootinit.model.entity.User;
-import com.yupi.springbootinit.model.enums.UserRoleEnum;
-import com.yupi.springbootinit.service.UserService;
+import com.linynag.springbootinit.annotation.AuthCheck;
+import com.linynag.springbootinit.common.ErrorCode;
+import com.linynag.springbootinit.exception.BusinessException;
+import com.linynag.springbootinit.model.entity.User;
+import com.linynag.springbootinit.model.enums.UserRoleEnum;
+import com.linynag.springbootinit.service.UserService;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
@@ -20,8 +21,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 /**
  * 权限校验 AOP
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Aspect
 @Component

@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.config;
+package com.linynag.springbootinit.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -10,10 +10,9 @@ import org.springframework.context.annotation.Configuration;
 /**
  * MyBatis Plus 配置
  *
- * @author https://github.com/liyupi
- */
+ * @author https://github.com/li */
 @Configuration
-@MapperScan("com.yupi.springbootinit.mapper")
+@MapperScan("com.linynag.springbootinit.mapper")
 public class MyBatisPlusConfig {
 
     /**

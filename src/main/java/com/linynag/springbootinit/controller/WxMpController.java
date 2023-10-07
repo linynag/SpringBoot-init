@@ -1,6 +1,6 @@
-package com.yupi.springbootinit.controller;
+package com.linynag.springbootinit.controller;
 
-import com.yupi.springbootinit.wxmp.WxMpConstant;
+import com.linynag.springbootinit.wxmp.WxMpConstant;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 微信公众号相关接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  **/
 @RestController
 @RequestMapping("/")
