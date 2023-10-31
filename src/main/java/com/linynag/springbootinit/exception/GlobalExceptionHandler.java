@@ -39,13 +39,6 @@ public class GlobalExceptionHandler {
         return ResultUtils.error(ErrorCode.SYSTEM_ERROR, "系统错误");
     }
 
-    private void logErrorRequest(Exception e) {
-        // 组装日志内容
-        String logInfo = String.format("报错API URL: %S, error = ", httpServletRequest.getRequestURI(), e.getMessage());
-        // 打印日志
-        log.error(logInfo);
-    }
-
     /**
      * {@code @RequestBody} 参数校验不通过时抛出的异常处理
      */
@@ -63,7 +56,6 @@ public class GlobalExceptionHandler {
         return ResultUtils.error(ErrorCode.PARAMS_ERROR, sb.toString());
     }
 
-
     /**
      * 其他异常
      *
@@ -74,5 +66,12 @@ public class GlobalExceptionHandler {
     protected BaseResponse<?> serviceException(Exception exception) {
         logErrorRequest(exception);
         return ResultUtils.error(ErrorCode.SYSTEM_ERROR, exception.getMessage());
+    }
+
+    private void logErrorRequest(Exception e) {
+        // 组装日志内容
+        String logInfo = String.format("报错API URL: %S, error = ", httpServletRequest.getRequestURI(), e.getMessage());
+        // 打印日志
+        log.error(logInfo);
     }
 }

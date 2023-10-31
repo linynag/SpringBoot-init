@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -16,7 +17,7 @@ public class UserRegisterRequest implements Serializable {
 
     private static final long serialVersionUID = 3191241716373120793L;
 
-    @NotBlank(message = "账号不能为空")
+    @NotNull(message = "账号不能为空")
     @Size(min = 4, max = 8, message = "账号必须4-8位")
     private String userAccount;
 
