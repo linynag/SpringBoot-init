@@ -19,11 +19,13 @@ import java.io.IOException;
 
 /**
  * 全局异常处理器
- *
  */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+
+    @Autowired
+    HttpServletRequest httpServletRequest;
 
     @ExceptionHandler(BusinessException.class)
     public BaseResponse<T> businessExceptionHandler(BusinessException e) {
@@ -37,16 +39,11 @@ public class GlobalExceptionHandler {
         return ResultUtils.error(ErrorCode.SYSTEM_ERROR, "系统错误");
     }
 
-
-
-    @Autowired
-    HttpServletRequest httpServletRequest;
-
     private void logErrorRequest(Exception e) {
         // 组装日志内容
         String logInfo = String.format("报错API URL: %S, error = ", httpServletRequest.getRequestURI(), e.getMessage());
         // 打印日志
-        System.out.println(logInfo);
+        log.error(logInfo);
     }
 
     /**
@@ -63,34 +60,19 @@ public class GlobalExceptionHandler {
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
             sb.append(fieldError.getField()).append("：").append(fieldError.getDefaultMessage()).append(", ");
         }
-        return ResultUtils.error(ErrorCode.PARAMS_ERROR,sb.toString());
+        return ResultUtils.error(ErrorCode.PARAMS_ERROR, sb.toString());
     }
 
-    // /**
-    //  * 业务层异常，如果项目中有自定义异常则使用自定义业务异常，如果没有，可以和其他异常一起处理
-    //  *
-    //  * @param exception
-    //  * @return
-    //  */
-    // @ExceptionHandler(RuntimeException.class)
-    // protected BaseResponse<?> serviceException(RuntimeException exception) {
-    //     logErrorRequest(exception);
-    //     return ResultUtils.error(ErrorCode.PARAMS_ERROR,exception.getMessage());
-    // }
-    //
-    // /**
-    //  * 其他异常
-    //  *
-    //  * @param exception
-    //  * @return
-    //  */
-    // @ExceptionHandler({HttpClientErrorException.class, IOException.class, Exception.class})
-    // protected BaseResponse<?> serviceException(Exception exception) {
-    //     logErrorRequest(exception);
-    //     return ResultUtils.error(ErrorCode.SYSTEM_ERROR,exception.getMessage());
-    // }
 
-
-
-
+    /**
+     * 其他异常
+     *
+     * @param exception
+     * @return
+     */
+    @ExceptionHandler({HttpClientErrorException.class, IOException.class, Exception.class})
+    protected BaseResponse<?> serviceException(Exception exception) {
+        logErrorRequest(exception);
+        return ResultUtils.error(ErrorCode.SYSTEM_ERROR, exception.getMessage());
+    }
 }

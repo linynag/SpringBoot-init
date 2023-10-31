@@ -19,8 +19,12 @@ public class UserRegisterRequest implements Serializable {
     @NotBlank(message = "账号不能为空")
     @Size(min = 4, max = 8, message = "账号必须4-8位")
     private String userAccount;
+
     @NotBlank(message = "密码不能为空")
+    @Size(min = 8, message = "密码必须大于8位")
     private String userPassword;
+
     @NotBlank(message = "密码不能为空")
+    @Size(min = 8, message = "密码必须大于8位")
     private String checkPassword;
 }
