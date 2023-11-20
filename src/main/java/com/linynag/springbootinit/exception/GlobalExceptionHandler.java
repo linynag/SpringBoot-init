@@ -74,4 +74,5 @@ public class GlobalExceptionHandler {
         // 打印日志
         log.error(logInfo);
     }
+
 }
