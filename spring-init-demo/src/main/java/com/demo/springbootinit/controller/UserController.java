@@ -1,8 +1,6 @@
 package com.demo.springbootinit.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.demo.springbootinit.constant.UserConstant;
-import com.demo.springbootinit.service.UserService;
 import com.demo.springbootinit.annotation.AuthCheck;
 import com.demo.springbootinit.common.BaseResponse;
 import com.demo.springbootinit.common.DeleteRequest;
@@ -12,23 +10,11 @@ import com.demo.springbootinit.config.WxOpenConfig;
 import com.demo.springbootinit.constant.UserConstant;
 import com.demo.springbootinit.exception.BusinessException;
 import com.demo.springbootinit.exception.ThrowUtils;
+import com.demo.springbootinit.model.dto.user.*;
 import com.demo.springbootinit.model.entity.User;
 import com.demo.springbootinit.model.vo.LoginUserVO;
 import com.demo.springbootinit.model.vo.UserVO;
 import com.demo.springbootinit.service.UserService;
-import com.demo.springbootinit.model.dto.user.UserAddRequest;
-import com.demo.springbootinit.model.dto.user.UserLoginRequest;
-import com.demo.springbootinit.model.dto.user.UserQueryRequest;
-import com.demo.springbootinit.model.dto.user.UserRegisterRequest;
-import com.demo.springbootinit.model.dto.user.UserUpdateMyRequest;
-import com.demo.springbootinit.model.dto.user.UserUpdateRequest;
-
-import java.util.List;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
@@ -36,12 +22,13 @@ import me.chanjar.weixin.mp.api.WxMpService;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 用户接口
@@ -301,5 +288,17 @@ public class UserController {
         boolean result = userService.updateById(user);
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         return ResultUtils.success(true);
+    }
+
+    /**
+     * 测试gateway
+     *
+     * @param orgId
+     * @return
+     */
+    @GetMapping(value = "/{orgId}")
+    public BaseResponse<Long> test(@PathVariable("orgId") Long orgId) {
+        log.info("orgId: {}", orgId);
+        return ResultUtils.success(orgId);
     }
 }
